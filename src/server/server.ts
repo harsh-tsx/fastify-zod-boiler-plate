@@ -10,6 +10,7 @@ import {
 } from "fastify-type-provider-zod";
 
 import fastifySwagger, { SwaggerOptions } from "@fastify/swagger";
+import swaggerOption from "@/config/swagger";
 import fastifySwaggerUI from "@fastify/swagger-ui";
 import { errorHandler } from "@/middleware/errorHanlder";
 
@@ -59,26 +60,9 @@ export function createServer(opts: ServerOptions) {
 		},
 	);
 
-	server.register(fastifySwagger, {
-		openapi: {
-			info: {
-				title: "SampleApi",
-				description: "Sample backend service",
-				version: "3.0.0",
-			},
-			servers: [],
-		},
-		transform: jsonSchemaTransform,
-		// You can also create transform with custom skiplist of endpoints that should not be included in the specification:
-		//
-		// transform: createJsonSchemaTransform({
-		//   skipList: [ '/documentation/static/*' ]
-		// })
-	});
+	server.register(fastifySwagger, swaggerOption);
 
-	server.register(fastifySwaggerUI, {
-		routePrefix: "/doc",
-	});
+	server.register(fastifySwaggerUI, swaggerOption as any);
 
 	opts.routes(server as any);
 

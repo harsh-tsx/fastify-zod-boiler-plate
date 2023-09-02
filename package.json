@@ -4,7 +4,8 @@
 	"scripts": {
 		"dev": "tsnd --respawn --transpile-only --exit-child --require tsconfig-paths/register",
 		"app": "npm run dev src/server/app.ts",
-		"g:module": "npm run dev src/dev/utils/generateModule.ts"
+		"g:module": "npm run dev src/dev/utils/generateModule.ts",
+		"build": "tsc && tsc-alias"
 	},
 	"dependencies": {
 		"@fastify/cors": "^8.3.0",
@@ -20,7 +21,9 @@
 		"moment": "^2.29.4",
 		"mongoose-tsgen": "^9.2.6",
 		"pino-pretty": "^10.2.0",
+		"swagger-themes": "^1.2.30",
 		"ts-node-dev": "^2.0.0",
+		"tsc-alias": "^1.8.7",
 		"unique-names-generator": "^4.7.1",
 		"zod": "^3.21.4"
 	},
