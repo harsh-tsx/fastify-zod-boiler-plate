@@ -4,6 +4,7 @@
 	"scripts": {
 		"dev": "tsnd --respawn --transpile-only --exit-child --require tsconfig-paths/register",
 		"app": "npm run dev src/server/app.ts",
+		"ts": "tsnd  src/server/app.ts",
 		"g:module": "npm run dev src/dev/utils/generateModule.ts",
 		"build": "tsc && tsc-alias"
 	},
@@ -11,6 +12,7 @@
 		"@fastify/cors": "^8.3.0",
 		"@fastify/swagger": "^8.8.0",
 		"@fastify/swagger-ui": "^1.9.3",
+		"agenda": "^5.0.0",
 		"axios": "^1.4.0",
 		"bcryptjs": "^2.4.3",
 		"dotenv": "^16.3.1",
